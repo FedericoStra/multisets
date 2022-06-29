@@ -1,0 +1,15 @@
+[package]
+name = "multisets"
+version = "0.0.0"
+description = "A multiset implementation, currently based on a HashMap"
+authors = ["Federico Stra <stra.federico@gmail.com>"]
+license = "MIT"
+repository = "https://github.com/FedericoStra/multisets"
+categories = ["data-structures"]
+keywords = ["multiset", "bag", "collection", "set"]
+edition = "2021"
+
+[features]
+
+[dependencies]
+num-traits = "0.2.15"
