@@ -1,3 +1,4 @@
+use num_traits::Zero;
 use std::borrow::Borrow;
 use std::collections::{hash_map::RandomState, HashMap};
 use std::hash::{BuildHasher, Hash};
@@ -155,14 +156,14 @@ impl<T, C, S> HashMultiset<T, C, S>
 where
     T: Eq + Hash,
     S: BuildHasher,
-    C: Copy + Default,
+    C: Copy + Zero,
 {
     pub fn multiplicity<Q: ?Sized>(&self, item: &Q) -> C
     where
         T: Borrow<Q>,
         Q: Eq + Hash,
     {
-        self.items.get(item).map(|c| *c).unwrap_or_default()
+        self.items.get(item).map(|c| *c).unwrap_or(C::zero())
     }
 }
 
